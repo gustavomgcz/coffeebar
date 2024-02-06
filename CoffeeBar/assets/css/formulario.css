@@ -1,0 +1,43 @@
+.formulario-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+input {
+    border: none;
+}
+
+.formulario__input {
+    box-sizing: border-box;
+    border-bottom: 1px solid #4d4d4d;
+    padding: 1rem 0.5rem 0.5rem;
+    height: 3rem;
+    width: 100%;
+}
+
+.formulario__input::placeholder {
+    visibility: hidden;
+    color: #00000000;
+}
+
+.formulario__input:focus {
+    outline: none;
+}
+
+.formulario__label {
+    position: absolute;
+    top: 1.375rem;
+    left: 0.5rem;
+    font-size: 1.2rem;
+    transition: all .25s;
+}
+
+.formulario__input:not(:placeholder-shown) + .formulario__label, .formulario__input:focus + .formulario__label {
+    font-size: 0.875rem;
+    top: 0.25rem;
+    transition: all .25s;
+}

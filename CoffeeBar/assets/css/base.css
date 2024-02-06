@@ -1,0 +1,35 @@
+:root {
+    --branco: #FFFFFF;
+    --preto: #000000;
+    --azul-botao: #0071ea;
+    --cinza-btnAtivo: #a0a0a0;
+
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+    padding-left: 6%;
+    padding-right: 6%;
+}
+
+.titulo-pg {
+    padding-top: 1.5rem;
+    border-bottom: 3px solid var(--preto);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+
+/* RESPONSIVO */
+
+@media screen and (min-width: 0px) {
+}
+
+@media screen and (min-width: 992px) {
+    .titulo-pg h1 {
+        margin-left: 2%;
+    }
+}

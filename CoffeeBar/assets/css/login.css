@@ -1,0 +1,86 @@
+body {
+    background: #f1f1f1;
+}
+
+.central {
+    height: 100vh;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 100%;
+}
+
+.painel {
+    display: grid;
+    border: .2rem solid black;
+    border-radius: 5px;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.logo__img {
+    height: auto;
+}
+
+.painel__login {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.8rem;
+    padding: 2rem;
+    background: #fff;
+    height: 75vh;
+}
+
+.formulario-container {
+    display: flex;
+}
+
+.titulo-pg {
+    text-align: center;
+}
+
+.pos-botao {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.botao {
+    width: 100%;
+}
+
+
+/* RESPONSIVO */
+
+@media screen and (min-width: 0px) {
+    .logo__img {
+        max-height: 50vw;
+        max-width: 30vh;
+    }
+}
+
+
+@media screen and (min-width: 992px) {
+    .painel {
+        grid-template-columns: 33% 67%;
+        justify-content: center;
+    }
+
+    .painel__login {
+        grid-column: 1/2;
+    }
+
+    .painel__lateral {
+        grid-column: 2/3; 
+        background: url(../img/cafe-Coffee-Nall-1.jpg) center / cover no-repeat;
+    }
+
+    .logo__img {
+        max-height: 13vw;
+    }
+
+}

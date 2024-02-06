@@ -1,0 +1,168 @@
+.titulo-pg {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
+}
+
+.campo-tabela {
+    padding: .5rem 1.25rem;
+}
+
+.tabela {
+    background: #f0f0f0;
+    width: 100%;
+}
+
+th, td {
+    padding: 1rem;
+}
+
+th {
+    background: #606060;
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-align: left;
+}
+
+tr {
+    font-size: .9rem;
+}
+
+tr:nth-of-type(even) {
+    background: #dfdfdf;
+}
+
+.botao-adicionar,
+.botao-pg {
+    align-self: center;
+    background-color: var(--azul-botao);
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: var(--branco);
+    font-size: 1rem;
+}
+
+.botao-adicionar {
+    margin-right: 2%;
+    height: 3rem;
+    width: 15ch;
+}
+
+.botao-adicionar:active,
+.botao-pg:active {
+    background-color: var(--cinza-btnAtivo);
+}
+
+.ferramenta-tabela {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dropdown-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.dropdown {
+    box-sizing: border-box;
+    height: 3rem;
+    width: 10ch;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.dropdown option {
+    text-align: left;
+}
+
+.formulario-container {
+    align-items: end;
+    margin-bottom: .5rem;
+}
+
+.alinha-direita {
+    display: flex;
+    justify-content: end;
+    margin-top: 1rem;
+}
+
+.campo-paginacao {
+    display: flex;
+    justify-content: end;
+}
+
+.botao-pg {
+    margin-right: .25rem;
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+}
+
+.inicio-fim {
+    width: 9ch;
+}
+
+.botao-pg:last-child {
+    margin-right: 0;
+}
+
+.ativo {
+    text-decoration: underline;
+}
+
+.botao-acao {
+    height: 1.75rem;
+    width: 1.75rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.botao-vantagens {
+    background-color: #1b6eff;
+}
+
+.botao-vantagens:hover {
+    background-color: #015eff;
+}
+
+.botao-editar {
+    background-color: #ffcf47;
+}
+
+.botao-editar:hover {
+    background-color: #ffc61d;
+}
+
+.botao-excluir {
+    background-color: #ff0700;
+}
+
+.botao-excluir:hover {
+    background-color: #d03946;
+}
+
+/* RESPONSIVO */
+
+@media screen and (min-width: 499px) {
+    .botao-adicionar {
+        height: 1.75rem;
+    }
+}
+
+@media screen and (min-width: 0px) {
+    .campo-paginacao {
+        width: 100%;
+    }
+}
+
+
+@media screen and (min-width: 992px) {
+    .campo-paginacao {
+        width: 39%;
+    }
+
+}

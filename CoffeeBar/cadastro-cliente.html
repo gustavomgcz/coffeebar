@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta name="viewport" content="width=device-width, inicial-scale=1.0">
+        <title> CoffeeBar | Clube de Fidelização</title>
+        <link rel="stylesheet" href="/assets/css/reset.css">
+        <link rel="stylesheet" href="/assets/css/base.css">
+        <link rel="stylesheet" href="/assets/css/cabecalho.css">
+        <link rel="stylesheet" href="/assets/css/rodape.css">
+        <link rel="stylesheet" href="/assets/css/cadastro.css">
+        <link rel="stylesheet" href="/assets/css/formulario.css">
+        <link rel="stylesheet" href="/assets/css/botao.css">
+        <link rel="icon" href="/assets/img/favicon-black.png" type="image/x-icon">
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </head>
+    
+    <body>
+        <header class="cabecalho container">
+            <a href=""><img src="assets/img/logo-color.png" alt="Logo CoffeeBar" class="cabecalho__logo"></a>
+            <nav class="cabecalho__navegacao">
+                <ul class="cabecalho__lista">
+                    <li class="cabecalho__link"><a href="home.html">Home</a></li>
+                    <li class="cabecalho__link"><a href="#">Usuários</a></li>
+                    <li class="cabecalho__link"><a href="#">Pagamento</a></li>
+                    <li class="cabecalho__link"><a href="#">Estoque</a></li>
+                    <li class="cabecalho__link"><a href="#">Vantagens</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        
+        <main class="container">
+            
+            <div class="sessao-cadastro">
+                <div class="titulo-pg">
+                    <h1>Cadastro de Clientes</h1>
+                </div>
+                
+                <fieldset>
+                    <form>
+                        <div class="formulario">
+                            <div class="formulario-container formulario--nome">
+                                <input id="nome" class="formulario__input" name="nome" type="text" placeholder="Nome" required></input>
+                                <label class="formulario__label" for="nome">Nome</label>
+                            </div>
+                            <div class="formulario-container formulario--cpf">
+                                <input id="cpf" class="formulario__input" name="cpf" type="text" placeholder="CPF" maxlength="14" required>
+                                <label class="formulario__label" for="cpf">CPF</label>
+                            </div>
+                            <div class="formulario-container formulario--email">
+                                <input id="email" class="formulario__input" name="email" type="email" placeholder="E-mail" required>
+                                <label class="formulario__label" for="email">E-mail</label>
+                            </div>
+                            <div class="formulario-container formulario--celular">
+                                <input id="celular" class="formulario__input" name="celular" type="text" placeholder="Celular" required>
+                                <label class="formulario__label" for="celular">Celular</label>
+                            </div>
+                        </div>
+                        <div class="pos-botao">
+                            <button class="botao">Salvar</button>
+                        </div>
+                    </form>
+                </fieldset>
+            </div>
+            
+        </main>
+        
+        
+        <footer class="rodape container"> &copy CoffeeBar</footer>
+        
+        <script src="/assets/js/script.js"></script>
+
+    </body>
+    
+</html>

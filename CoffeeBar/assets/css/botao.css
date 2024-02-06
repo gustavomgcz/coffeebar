@@ -1,0 +1,14 @@
+.botao {
+    display: block;
+    background-color: var(--azul-botao);
+    border-radius: 5px;
+    margin-top: 5rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    color: var(--branco);
+    font-size: 1.25rem;
+}
+
+.botao:active {
+    background-color: var(--cinza-btnAtivo);
+}

@@ -16,6 +16,7 @@ async function listaDados(urlApi) {
 
 // Construtor Tabela
 async function criaTabela(paginaAtual, itensPorPagina) {
+    console.log('teste')
     const resultado = await listaDados(urlApi)
     const resultadoCabecalho = resultado.cabecalho
     const resultadoCorpo = resultado.corpo

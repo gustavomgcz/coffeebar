@@ -59,8 +59,9 @@ async function criaTabela(paginaAtual, itensPorPagina) {
 
 // Busca
 function buscarValorDigitado (corpoTabela) {
-    $('#procurar').on('keyup', function() {
-        let valor = $(this).val().toLocaleLowerCase()
+    const buscaDigitado = document.querySelector('#procurar')
+    buscaDigitado.addEventListener('keyup', function() {
+        let valor = this.value.toLocaleLowerCase()
     
         for (const linha of corpoTabela.querySelectorAll("tr")) {
             const celulas = linha.querySelectorAll("td")

@@ -1,5 +1,8 @@
 const urlApi = "assets/json/tabela.json"
 const tabela = document.querySelector("table")
+const cabecalhoTabela = tabela.querySelector("thead")
+const corpoTabela = tabela.querySelector("tbody")
+const buscaDigitado = document.querySelector('#procurar')
 let itensPorPagina = Number(document.querySelector('.dropdown').value)
 let paginaAtual = 1
 const botoesPorPagina = 5
@@ -19,8 +22,6 @@ async function criaTabela(paginaAtual, itensPorPagina) {
     const resultado = await listaDados(urlApi)
     const resultadoCabecalho = resultado.cabecalho
     const resultadoCorpo = resultado.corpo
-    const cabecalhoTabela = tabela.querySelector("thead")
-    const corpoTabela = tabela.querySelector("tbody")
     
     cabecalhoTabela.innerHTML = "<tr></tr>"
     corpoTabela.innerHTML = ""
@@ -36,48 +37,60 @@ async function criaTabela(paginaAtual, itensPorPagina) {
         cabecalhoTabela.querySelector("tr").appendChild(cabecalhoElemento)
     }
     
-    // Corpo Tabela
-    for (let i = inicioIndex; i < fimIndex && i < resultadoCorpo.length; i++) {
-        const conteudo = resultadoCorpo[i]
-        const conteudoElemento = document.createElement("tr")
-        
-        for (const corpoTexto of conteudo) {
-            const corpoElemento = document.createElement("td")
-            
-            corpoElemento.textContent = corpoTexto
-            conteudoElemento.appendChild(corpoElemento)
-        }
-        
-        corpoTabela.appendChild(conteudoElemento)
-    }
-    
-    buscarValorDigitado(corpoTabela)
+    // Cria Corpo Tabela e Realiza Busca
+    mostraDados(inicioIndex, fimIndex, resultadoCorpo)
+
+    // Insere Botões de Páginas
     paginacao(paginaAtual, resultadoCorpo)
+
+    // Dropdown Quantidade de Itens Por Página
     seletorItensPagina()
 }
 
 
-// Busca
-function buscarValorDigitado (corpoTabela) {
-    const buscaDigitado = document.querySelector('#procurar')
-    buscaDigitado.addEventListener('keyup', function() {
-        let valor = this.value.toLocaleLowerCase()
+function mostraDados(inicioIndex, fimIndex, resultadoCorpo) {
+    corpoTabela.innerHTML = ""
+    for (let i = inicioIndex; i < fimIndex && i < resultadoCorpo.length; i++) {
+        const conteudo = resultadoCorpo[i]
+        const conteudoElemento = document.createElement("tr")
     
-        for (const linha of corpoTabela.querySelectorAll("tr")) {
-            const celulas = linha.querySelectorAll("td")
-            let encontrado = false
-    
-            for (const celula of celulas) {
-                if (celula.textContent.toLocaleLowerCase().includes(valor)) {
-                    encontrado = true
-                    break
-                }
-            }
-            
-            linha.style.display = encontrado ? "" : "none"
-    
+        for (const corpoTexto of conteudo) {
+            const corpoElemento = document.createElement("td")
+
+            corpoElemento.textContent = corpoTexto
+            conteudoElemento.appendChild(corpoElemento)
         }
-        
+
+        corpoTabela.appendChild(conteudoElemento)
+    }
+
+    buscarValorDigitado()
+}
+
+function buscarValorDigitado() {
+    buscaDigitado.addEventListener('keyup', function () {
+        let valor = this.value.toLocaleLowerCase()
+        if (valor.length > 2) {
+            for (const linha of corpoTabela.querySelectorAll("tr")) {
+                const celulas = linha.querySelectorAll("td")
+                let encontrado = false
+
+                for (const celula of celulas) {
+                    if (celula.textContent.toLocaleLowerCase().includes(valor)) {
+                        encontrado = true
+                        break
+                    }
+                }
+
+                linha.style.display = encontrado ? "" : "none"
+
+            }
+        } else {
+            for (const linha of corpoTabela.querySelectorAll("tr")) {
+                linha.style.display = ""
+            }
+        }
+
     })
 }
 

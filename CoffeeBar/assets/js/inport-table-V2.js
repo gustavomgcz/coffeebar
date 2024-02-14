@@ -4,7 +4,7 @@ const cabecalhoTabela = tabela.querySelector("thead")
 const corpoTabela = tabela.querySelector("tbody")
 const buscaDigitado = document.querySelector('#procurar')
 let itensPorPagina = Number(document.querySelector('.dropdown').value)
-let paginaAtual = 1
+const paginaUm = 1
 const botoesPorPagina = 5
 
 
@@ -24,10 +24,6 @@ async function criaTabela(paginaAtual, itensPorPagina) {
     const resultadoCorpo = resultado.corpo
     
     cabecalhoTabela.innerHTML = "<tr></tr>"
-    corpoTabela.innerHTML = ""
-    
-    let inicioIndex = (paginaAtual - 1) * itensPorPagina
-    let fimIndex = inicioIndex + itensPorPagina
     
     // Cabeçalho Tabela
     for (const cabecalhoTexto of resultadoCabecalho) {
@@ -38,18 +34,18 @@ async function criaTabela(paginaAtual, itensPorPagina) {
     }
     
     // Cria Corpo Tabela e Realiza Busca
-    mostraDados(inicioIndex, fimIndex, resultadoCorpo)
+    mostraDados(resultadoCorpo, itensPorPagina, paginaAtual)
 
-    // Insere Botões de Páginas
-    paginacao(paginaAtual, resultadoCorpo)
-
-    // Dropdown Quantidade de Itens Por Página
-    seletorItensPagina()
+    
 }
 
 
-function mostraDados(inicioIndex, fimIndex, resultadoCorpo) {
+function mostraDados(resultadoCorpo, itensPorPagina, paginaAtual) {
     corpoTabela.innerHTML = ""
+
+    let inicioIndex = (paginaAtual - 1) * itensPorPagina
+    let fimIndex = inicioIndex + itensPorPagina
+    
     for (let i = inicioIndex; i < fimIndex && i < resultadoCorpo.length; i++) {
         const conteudo = resultadoCorpo[i]
         const conteudoElemento = document.createElement("tr")
@@ -63,32 +59,39 @@ function mostraDados(inicioIndex, fimIndex, resultadoCorpo) {
 
         corpoTabela.appendChild(conteudoElemento)
     }
+    
+    // Campo de Busca
+    buscarValorDigitado(resultadoCorpo, itensPorPagina, paginaAtual)
 
-    buscarValorDigitado()
+    // Insere Botões de Páginas
+    paginacao(paginaAtual, resultadoCorpo, itensPorPagina)
+
+    // Dropdown Quantidade de Itens Por Página
+    seletorItensPagina()
 }
 
-function buscarValorDigitado() {
+// Busca Dados
+function buscarValorDigitado(resultadoCorpo, itensPorPagina, paginaAtual) {
     buscaDigitado.addEventListener('keyup', function () {
         let valor = this.value.toLocaleLowerCase()
+        
         if (valor.length > 2) {
-            for (const linha of corpoTabela.querySelectorAll("tr")) {
-                const celulas = linha.querySelectorAll("td")
-                let encontrado = false
-
-                for (const celula of celulas) {
-                    if (celula.textContent.toLocaleLowerCase().includes(valor)) {
-                        encontrado = true
-                        break
-                    }
+            let filtroCorpo = resultadoCorpo.filter(function(item) {
+                if (Array.isArray(item)) {
+                    return item.some(function(subItem) {
+                        return (typeof subItem === 'string' && subItem.toLocaleLowerCase().includes(valor)) || (typeof subItem === 'number' && subItem.toString().includes(valor))
+                    })
                 }
+            })
+            
+            corpoTabela.innerHTML = ""
+            
+            mostraDados(filtroCorpo, itensPorPagina, paginaAtual)
+            
+            paginacao(paginaAtual, filtroCorpo, itensPorPagina)
 
-                linha.style.display = encontrado ? "" : "none"
-
-            }
         } else {
-            for (const linha of corpoTabela.querySelectorAll("tr")) {
-                linha.style.display = ""
-            }
+            criaTabela(1, itensPorPagina)
         }
 
     })
@@ -96,7 +99,7 @@ function buscarValorDigitado() {
 
 
 // Botões Seleção Página
-function paginacao (paginaAtual, resultadoCorpo) {
+function paginacao (paginaAtual, resultadoCorpo, itensPorPagina) {
     const paginas = Math.ceil(resultadoCorpo.length / itensPorPagina)
     const divDosBotoes = document.querySelector('.campo-paginacao')
     
@@ -104,7 +107,7 @@ function paginacao (paginaAtual, resultadoCorpo) {
     
     let esquerdaMax = paginaAtual - Math.floor(botoesPorPagina / 2)
     let direitaMax = paginaAtual + Math.floor(botoesPorPagina / 2)
-    
+
     if (esquerdaMax < 1) {
         esquerdaMax = 1
         direitaMax = botoesPorPagina
@@ -149,10 +152,9 @@ function paginacao (paginaAtual, resultadoCorpo) {
             
             if (numeroBotaoClicado == "« Inicio") valorBotao = 1
             
-            criaTabela(valorBotao, itensPorPagina)
+            mostraDados(resultadoCorpo, itensPorPagina, valorBotao)
         })
     })
-    
 }
 
 
@@ -161,12 +163,11 @@ function seletorItensPagina() {
     const selectDropdown = document.querySelector('.dropdown')
     
     selectDropdown.addEventListener('change', () => {
-        let valorSelecionado = Number(selectDropdown.value)
-        itensPorPagina = valorSelecionado
+        itensPorPagina = Number(selectDropdown.value)
         
-        criaTabela(paginaAtual, itensPorPagina)
+        criaTabela(paginaUm, itensPorPagina)
     })
 }
 
 
-criaTabela(paginaAtual, itensPorPagina)
+criaTabela(paginaUm, itensPorPagina)

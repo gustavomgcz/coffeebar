@@ -36,6 +36,10 @@ input {
     transition: all .25s;
 }
 
+.formulario__label:hover {
+    cursor:text;
+}
+
 .formulario__input:not(:placeholder-shown) + .formulario__label, .formulario__input:focus + .formulario__label {
     font-size: 0.875rem;
     top: 0.25rem;

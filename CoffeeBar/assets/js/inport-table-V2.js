@@ -1,4 +1,5 @@
-const urlApi = "assets/json/tabela.json"
+const urlApi = "/assets/json/tabela.json"
+// const urlApi = "db.json"
 const tabela = document.querySelector("table")
 const cabecalhoTabela = tabela.querySelector("thead")
 const corpoTabela = tabela.querySelector("tbody")
@@ -6,10 +7,11 @@ const buscaDigitado = document.querySelector('#procurar')
 let itensPorPagina = Number(document.querySelector('.dropdown').value)
 const paginaUm = 1
 const botoesPorPagina = 5
+const cabecalho = ["User ID","Nome","E-mail","Celular","Pontos"]
 
 
 // Conexão API
-async function listaDados(urlApi) {
+async function listaDados() {
     const resposta = await fetch(urlApi)
     const dados = await resposta.json()
     
@@ -19,8 +21,8 @@ async function listaDados(urlApi) {
 
 // Construtor Tabela
 async function criaTabela(paginaAtual, itensPorPagina) {
-    const resultado = await listaDados(urlApi)
-    const resultadoCabecalho = resultado.cabecalho
+    const resultado = await listaDados()
+    const resultadoCabecalho = cabecalho
     const resultadoCorpo = resultado.corpo
     
     cabecalhoTabela.innerHTML = "<tr></tr>"
@@ -50,11 +52,13 @@ function mostraDados(resultadoCorpo, itensPorPagina, paginaAtual) {
         const conteudo = resultadoCorpo[i]
         const conteudoElemento = document.createElement("tr")
     
-        for (const corpoTexto of conteudo) {
-            const corpoElemento = document.createElement("td")
+        for (const corpoTexto in conteudo) {
+            if (conteudo.hasOwnProperty(corpoTexto)) {
+                const corpoElemento = document.createElement("td")
 
-            corpoElemento.textContent = corpoTexto
-            conteudoElemento.appendChild(corpoElemento)
+                corpoElemento.textContent = conteudo[corpoTexto]
+                conteudoElemento.appendChild(corpoElemento)
+            }
         }
 
         corpoTabela.appendChild(conteudoElemento)
@@ -77,11 +81,16 @@ function buscarValorDigitado(resultadoCorpo, itensPorPagina, paginaAtual) {
         
         if (valor.length > 2) {
             let filtroCorpo = resultadoCorpo.filter(function(item) {
-                if (Array.isArray(item)) {
-                    return item.some(function(subItem) {
-                        return (typeof subItem === 'string' && subItem.toLocaleLowerCase().includes(valor)) || (typeof subItem === 'number' && subItem.toString().includes(valor))
-                    })
+                for (let propriedade in item) {
+                    if (item.hasOwnProperty(propriedade)) {
+                        let propriedadeValor = item[propriedade]
+                        if ((typeof propriedadeValor === 'string' && propriedadeValor.toLowerCase().includes(valor)) ||
+                            (typeof propriedadeValor === 'number' && propriedadeValor.toString().includes(valor))) {
+                            return true
+                        }
+                    }
                 }
+                return false
             })
             
             corpoTabela.innerHTML = ""

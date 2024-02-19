@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "jquery-mask-plugin": "^1.14.16"
+    "jquery-mask-plugin": "^1.14.16",
+    "json-server": "^1.0.0-alpha.23"
   }
 }

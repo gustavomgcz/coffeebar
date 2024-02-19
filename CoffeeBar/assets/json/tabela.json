@@ -1,11 +1,4 @@
 {
-    "cabecalho":[
-        "User ID",
-        "Nome",
-        "E-mail",
-        "Celular",
-        "Pontos"
-    ],
     "corpo":[
         [
             1,

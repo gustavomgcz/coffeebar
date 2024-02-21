@@ -1,5 +1,8 @@
 const urlApi = "http://localhost:3000/corpo"
 const formulario = document.querySelector("[data-formulario]")
+const body = document.querySelector('body')
+const sumir = document.querySelector('.sucesso')
+
 
 // Conexão API
 async function listaDados() {
@@ -32,17 +35,14 @@ async function criarUsuario(nome, celular, email) {
             throw new Error(`Erro ao criar usuário. Status: ${conexao.status}`)
         }
 
-        const conexaoConvertida = conexao.json()
 
-        return conexaoConvertida
     } catch (error) {
         console.error("Erro ao criar usuário:", error.message)
         throw error
     }
 }
 
-async function enviarUsuario(evento) {
-    evento.preventDefault()
+async function enviarUsuario() {
 
     const nome = document.querySelector("#nome").value
     const celular = document.querySelector("#celular").value
@@ -50,7 +50,17 @@ async function enviarUsuario(evento) {
 
     try {
         await criarUsuario(nome, celular, email)
-        window.location.href = "./usuarios.html"
+        
+        sumir.style.display = "none"
+        const sucesso = document.createElement("div")
+        sucesso.className = "centraliza"
+        sucesso.innerHTML = `
+            <div class="caixa">
+                <h1 class="texto-ok">Usuários criados com sucesso!</h1>
+                <button class="botao-ok" onclick="location.href='usuarios.html'">Avançar</button>
+            </div>
+        `
+        body.appendChild(sucesso)
     } catch (e) {
         alert(e)
     }
@@ -63,6 +73,7 @@ async function verificaUltimoID () {
     return ultimoID
 }
 
-verificaUltimoID()
-
-formulario.addEventListener("submit", evento => enviarUsuario(evento))
+formulario.addEventListener("submit", evento => {
+    evento.preventDefault()
+    enviarUsuario()
+})

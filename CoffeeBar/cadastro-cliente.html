@@ -12,65 +12,67 @@
         <link rel="stylesheet" href="./assets/css/cadastro.css">
         <link rel="stylesheet" href="./assets/css/formulario.css">
         <link rel="stylesheet" href="./assets/css/botao.css">
+        <link rel="stylesheet" href="./assets/css/sucesso.css">
         <link rel="icon" href="./assets/img/favicon-black.png" type="image/x-icon">
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="./assets/js/include.js" defer></script>
+        <script src="./assets/js/script.js" defer></script>
     </head>
     
     <body>
-        <header class="cabecalho container">
-            <a href=""><img src="./assets/img/logo-black.png" alt="Logo CoffeeBar" class="cabecalho__logo"></a>
-            <nav class="cabecalho__navegacao">
-                <ul class="cabecalho__lista">
-                    <li class="cabecalho__link"><a href="home.html">Home</a></li>
-                    <li class="cabecalho__link"><a href="usuarios.html">Usuários</a></li>
-                    <li class="cabecalho__link"><a href="#">Pagamento</a></li>
-                    <li class="cabecalho__link"><a href="#">Estoque</a></li>
-                    <li class="cabecalho__link"><a href="#">Vantagens</a></li>
-                </ul>
-            </nav>
-        </header>
-        
-        
-        <main class="container">
+        <div class="sucesso">
+            <header class="cabecalho container">
+                <a href="home.html"><img src="./assets/img/logo-black.png" alt="Logo CoffeeBar" class="cabecalho__logo"></a>
+                <nav class="cabecalho__navegacao">
+                    <ul class="cabecalho__lista">
+                        <li class="cabecalho__link"><a href="home.html">Home</a></li>
+                        <li class="cabecalho__link"><a href="usuarios.html">Usuários</a></li>
+                        <li class="cabecalho__link"><a href="#">Pagamento</a></li>
+                        <li class="cabecalho__link"><a href="#">Estoque</a></li>
+                        <li class="cabecalho__link"><a href="#">Vantagens</a></li>
+                    </ul>
+                </nav>
+            </header>
             
-            <div class="sessao-cadastro">
-                <div class="titulo-pg">
-                    <h1>Cadastro de Clientes</h1>
+            
+            <main class="container">
+                
+                <div class="sessao-cadastro">
+                    <div class="titulo-pg">
+                        <h1>Cadastro de Clientes</h1>
+                    </div>
+                    
+                    <fieldset>
+                        <form data-formulario>
+                            <div class="formulario" >
+                                <div class="formulario-container formulario--nome">
+                                    <input id="nome" class="formulario__input" name="nome" type="text" placeholder="Nome" required></input>
+                                    <label class="formulario__label" for="nome">Nome</label>
+                                </div>
+                                <div class="formulario-container formulario--celular">
+                                    <input id="celular" class="formulario__input" name="celular" type="text" placeholder="Celular" required>
+                                    <label class="formulario__label" for="celular">Celular</label>
+                                </div>
+                                <div class="formulario-container formulario--email">
+                                    <input id="email" class="formulario__input" name="email" type="email" placeholder="E-mail" required>
+                                    <label class="formulario__label" for="email">E-mail</label>
+                                </div>
+                            </div>
+                            <div class="pos-botao">
+                                <button class="botao" type="submit">Salvar</button>
+                            </div>
+                        </form>
+                    </fieldset>
                 </div>
                 
-                <fieldset>
-                    <form data-formulario>
-                        <div class="formulario" >
-                            <div class="formulario-container formulario--nome">
-                                <input id="nome" class="formulario__input" name="nome" type="text" placeholder="Nome" required></input>
-                                <label class="formulario__label" for="nome">Nome</label>
-                            </div>
-                            <div class="formulario-container formulario--celular">
-                                <input id="celular" class="formulario__input" name="celular" type="text" placeholder="Celular" required>
-                                <label class="formulario__label" for="celular">Celular</label>
-                            </div>
-                            <div class="formulario-container formulario--email">
-                                <input id="email" class="formulario__input" name="email" type="email" placeholder="E-mail" required>
-                                <label class="formulario__label" for="email">E-mail</label>
-                            </div>
-                        </div>
-                        <div class="pos-botao">
-                            <button class="botao">Salvar</button>
-                        </div>
-                    </form>
-                </fieldset>
-            </div>
+            </main>
             
-        </main>
-        
-        
-        <footer class="rodape container"> &copy CoffeeBar</footer>
-        
-        <script src="./assets/js/script.js"></script>
-
+            
+            <footer class="rodape container"> &copy CoffeeBar</footer>
+            
+        </div>
     </body>
     
 </html>

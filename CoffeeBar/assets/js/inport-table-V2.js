@@ -1,5 +1,5 @@
-const urlApi = "/assets/json/tabela.json"
-// const urlApi = "db.json"
+// const urlApi = "/assets/json/tabela.json"
+const urlApi = "http://localhost:3000/corpo"
 const tabela = document.querySelector("table")
 const cabecalhoTabela = tabela.querySelector("thead")
 const corpoTabela = tabela.querySelector("tbody")
@@ -23,7 +23,6 @@ async function listaDados() {
 async function criaTabela(paginaAtual, itensPorPagina) {
     const resultado = await listaDados()
     const resultadoCabecalho = cabecalho
-    const resultadoCorpo = resultado.corpo
     
     cabecalhoTabela.innerHTML = "<tr></tr>"
     
@@ -36,7 +35,7 @@ async function criaTabela(paginaAtual, itensPorPagina) {
     }
     
     // Cria Corpo Tabela e Realiza Busca
-    mostraDados(resultadoCorpo, itensPorPagina, paginaAtual)
+    mostraDados(resultado, itensPorPagina, paginaAtual)
 
     
 }

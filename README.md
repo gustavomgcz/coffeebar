@@ -13,7 +13,8 @@ npm install jquery-mask-plugin
 npm install json-server
 ```
 
-Em seguida, rodar o json-server no port 3000
+Em seguida, rodar o db-usuarios.json no port 3000 e o db-produtos.json no port 4000
 ```
 json-server --watch db.json --port 3000
+json-server --watch db.json --port 4000
 ```

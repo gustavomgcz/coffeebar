@@ -23,7 +23,7 @@ async function criarUsuario(nome, celular, email) {
                 "Content-type": "application/json"
             },
             body: JSON.stringify({
-                id: ultimoID,
+                id: parseInt(ultimoID),
                 Nome: nome,
                 Email: email,
                 Celular: celular,

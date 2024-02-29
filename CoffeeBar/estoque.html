@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta name="viewport" content="width=device-width, inicial-scale=1.0">
+        <title> CoffeeBar | Clube de Fidelização</title>
+        <link rel="stylesheet" href="./assets/css/reset.css">
+        <link rel="stylesheet" href="./assets/css/base.css">
+        <link rel="stylesheet" href="./assets/css/cabecalho.css">
+        <link rel="stylesheet" href="./assets/css/rodape.css">
+        <link rel="stylesheet" href="./assets/css/cadastro.css">
+        <link rel="stylesheet" href="./assets/css/usuarios.css">
+        <link rel="stylesheet" href="./assets/css/formulario.css">
+        <link rel="stylesheet" href="./assets/css/botao.css">
+        <link rel="icon" href="./assets/img/favicon-black.png" type="image/x-icon">
+        
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="./assets/js/inport-products.js" defer></script>
+    </head>
+    
+    <body>
+        <header class="cabecalho container">
+            <a href="home.html"><img src="./assets/img/logo-black.png" alt="Logo CoffeeBar" class="cabecalho__logo"></a>
+            <nav class="cabecalho__navegacao">
+                <ul class="cabecalho__lista">
+                    <li class="cabecalho__link"><a href="home.html">Home</a></li>
+                    <li class="cabecalho__link"><a href="usuarios.html">Usuários</a></li>
+                    <li class="cabecalho__link"><a href="estoque.html">Estoque</a></li>
+                    <li class="cabecalho__link"><a href="#">Vantagens</a></li>
+                    <li class="cabecalho__link"><a href="#">Calculadora</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main class="container">
+            <div class="titulo-pg">
+                <h1>Produtos Cadastrados</h1>
+                <button class="botao-adicionar" onclick="location.href='cadastro-produtos.html'">Adicionar</button>
+            </div>
+            <div class="campo-tabela">
+                <div class="ferramenta-tabela">
+                    <div class="dropdown-container">
+                        <select class="dropdown">
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                        </select>
+                    </div>
+                    <div class="formulario-container">
+                        <input id="procurar" class="formulario__input" name="procurar" type="text" placeholder="Procurar" required></input>
+                        <label class="formulario__label" for="procurar">Procurar</label>
+                    </div>
+                </div>
+                <table class="tabela">
+                    <thead></thead>
+                    <tbody></tbody>
+                </table>
+                <div class="alinha-direita">
+                    <div class="campo-paginacao">
+                    </div>
+                </div>
+            </div>
+        </main>
+    
+
+
+        
+    </body>
+
+</html>

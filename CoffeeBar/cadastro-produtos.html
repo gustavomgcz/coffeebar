@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta name="viewport" content="width=device-width, inicial-scale=1.0">
+        <title> CoffeeBar | Clube de Fidelização</title>
+        <link rel="stylesheet" href="./assets/css/reset.css">
+        <link rel="stylesheet" href="./assets/css/base.css">
+        <link rel="stylesheet" href="./assets/css/cabecalho.css">
+        <link rel="stylesheet" href="./assets/css/rodape.css">
+        <link rel="stylesheet" href="./assets/css/cadastro.css">
+        <link rel="stylesheet" href="./assets/css/formulario.css">
+        <link rel="stylesheet" href="./assets/css/botao.css">
+        <link rel="stylesheet" href="./assets/css/sucesso.css">
+        <link rel="icon" href="./assets/img/favicon-black.png" type="image/x-icon">
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="./assets/js/add-produtcs.js" defer></script>
+    </head>
+    
+    <body>
+        <div class="sucesso">
+            <header class="cabecalho container">
+                <a href="home.html"><img src="./assets/img/logo-black.png" alt="Logo CoffeeBar" class="cabecalho__logo"></a>
+                <nav class="cabecalho__navegacao">
+                    <ul class="cabecalho__lista">
+                        <li class="cabecalho__link"><a href="home.html">Home</a></li>
+                        <li class="cabecalho__link"><a href="usuarios.html">Usuários</a></li>
+                        <li class="cabecalho__link"><a href="estoque.html">Estoque</a></li>
+                        <li class="cabecalho__link"><a href="#">Vantagens</a></li>
+                        <li class="cabecalho__link"><a href="#">Calculadora</a></li>
+                    </ul>
+                </nav>
+            </header>
+            
+            
+            <main class="container">
+                
+                <div class="sessao-cadastro">
+                    <div class="titulo-pg">
+                        <h1>Cadastrar Produtos</h1>
+                    </div>
+                    
+                    <fieldset>
+                        <form data-formulario>
+                            <div class="formulario">
+                                <div class="formulario-container formulario--sku">
+                                    <input id="sku" class="formulario__input" name="sky" type="text" placeholder="SKU" required></input>
+                                    <label class="formulario__label" for="sku">SKU</label>
+                                </div>
+                                <div class="formulario-container formulario--produto">
+                                    <input id="produto" class="formulario__input" name="produto" type="text" placeholder="Produto" required></input>
+                                    <label class="formulario__label" for="produto">Produto</label>
+                                </div>
+                                <div class="formulario-container formulario--quantidade">
+                                    <input id="quantidade" class="formulario__input" name="quantidade" type="number" placeholder="quantidade" required>
+                                    <label class="formulario__label" for="quantidade">Quantidade</label>
+                                </div>
+                                <div class="formulario-container formulario--valor">
+                                    <input id="valor" class="formulario__input" name="valor" type="number" placeholder="Valor" required>
+                                    <label class="formulario__label" for="valor">Valor</label>
+                                </div>
+                                <div class="formulario-container formulario--teste">
+                                    <h3>Unidade</h3>
+                                    <div class="radio--unidades">
+                                        <input type="radio" id="unid" name="unidade" value="un" checked>
+                                        <label for="unid">Un</label><br>
+                                        <input type="radio" id="kg" name="unidade" value="kg">
+                                        <label for="kg">Kg</label><br>
+                                        <input type="radio" id="gr" name="unidade" value="g">
+                                        <label for="gr">g</label>
+                                        <input type="radio" id="litros" name="unidade" value="l">
+                                        <label for="litros">L</label>
+                                        <input type="radio" id="ml" name="unidade" value="ml">
+                                        <label for="ml">mL</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pos-botao">
+                                <button class="botao" type="submit">Salvar</button>
+                            </div>
+                        </form>
+                    </fieldset>
+                </div>
+                
+            </main>
+            
+            
+            <footer class="rodape container"> &copy CoffeeBar</footer>
+            
+        </div>
+    </body>
+    
+</html>

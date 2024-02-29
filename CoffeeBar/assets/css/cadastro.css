@@ -2,6 +2,33 @@
     appearance: textfield;
 }
 
+#quantidade, #valor {
+    -moz-appearance: textfield;
+}
+
+.radio--unidades {
+    display: flex;
+    gap: 5px;
+    padding-top: 15px;
+}
+
+.formulario--teste h3 {
+    padding-left: 0.5rem;
+}
+
+#quantidade::-webkit-outer-spin-button,
+#quantidade::-webkit-inner-spin-button,
+#valor::-webkit-outer-spin-button,
+#valor::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.formulario--valor {
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
 
 /* RESPONSIVO */
 
@@ -33,11 +60,6 @@
         grid-row: 1/2;
     }
 
-    .formulario--cpf {
-        grid-column: 3/4;
-        grid-row: 1/2;
-    }
-
     .formulario--email {
         grid-column: 1/4;
         grid-row: 2/3;
@@ -56,6 +78,26 @@
 
     .botao {
         width: 35%;
+    }
+
+    .formulario--sku {
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+
+    .formulario--produto {
+        grid-column: 2/4;
+        grid-row: 1/2;
+    }
+
+    .formulario--quantidade {
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+
+    .formulario--valor {
+        grid-column: 2/3;
+        grid-row: 2/3;
     }
 }
 

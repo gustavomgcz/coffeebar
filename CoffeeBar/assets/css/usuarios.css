@@ -114,35 +114,56 @@ tr:nth-of-type(even) {
     text-decoration: underline;
 }
 
+.campo-botoes {
+    display: flex;
+    gap: 3px
+}
+
 .botao-acao {
     height: 1.75rem;
     width: 1.75rem;
     cursor: pointer;
     border-radius: 5px;
+    gap: 10px;
 }
 
 .botao-vantagens {
-    background-color: #1b6eff;
+    transition: .5s;
+    background-color: transparent;
+    border: solid 1px #00cc1e;
+    fill: #00cc1e;
 }
 
 .botao-vantagens:hover {
-    background-color: #015eff;
+    transition: .5s;
+    background-color: #00cc1e;
+    fill: white;
 }
 
 .botao-editar {
-    background-color: #ffcf47;
+    transition: .5s;
+    background-color: transparent;
+    border: solid 1px #ff9553;
+    fill: #ff9553;
 }
 
 .botao-editar:hover {
-    background-color: #ffc61d;
+    transition: .5s;
+    background-color: #ff9553;
+    fill: white;
 }
 
 .botao-excluir {
-    background-color: #ff0700;
+    transition: .5s;
+    background-color: transparent;
+    border: solid 1px #ff0700;
+    fill: #ff0700;
 }
 
 .botao-excluir:hover {
-    background-color: #d03946;
+    transition: .5s;
+    background-color: #ff0700;
+    fill: white;
 }
 
 /* RESPONSIVO */

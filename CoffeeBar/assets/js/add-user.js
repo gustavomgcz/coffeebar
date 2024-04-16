@@ -1,4 +1,4 @@
-const urlApi = "http://localhost:3000/corpo"
+const urlApi = "http://localhost:3000/usuarios/"
 const formulario = document.querySelector("[data-formulario]")
 const body = document.querySelector('body')
 const sumir = document.querySelector('.sucesso')

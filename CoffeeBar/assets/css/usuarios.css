@@ -37,6 +37,7 @@ tr:nth-of-type(even) {
 .botao-pg {
     align-self: center;
     background-color: var(--azul-botao);
+    border-bottom: none;
     border-radius: 5px;
     box-sizing: border-box;
     color: var(--branco);

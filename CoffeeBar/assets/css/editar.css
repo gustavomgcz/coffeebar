@@ -1,0 +1,108 @@
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.caixa-ad {
+    align-items: center;
+    background-color: #dfdfdf;
+    border-radius: 15%;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    justify-content: center;
+    left: 50%;
+    position: fixed;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+}
+
+.texto {
+    font-size: 2rem;
+    font-weight: bold;
+    padding-bottom: 2.5rem;
+    text-align: center;
+}
+
+.texto-ad {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.radio-ad {
+    align-self: center;
+}
+
+#adicionar-pontos {
+    margin-bottom: 10px;
+}
+
+.botao-ok {
+    background-color: var(--azul-botao);
+    border-radius: 5px;
+    color: var(--branco);
+    font-size: 1.5rem;
+    height: 50px;
+    width: 75%;
+}
+
+.botao-ok:active {
+    background-color: var(--cinza-btnAtivo);
+}
+
+.edita-pontos {
+    display: flex;
+    gap: 50px;
+    margin: 2rem 0 1rem;
+}
+
+.formulario--altera-pontos {
+    width: 75px;
+}
+
+#qtd-pontos::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#qtd-pontos {
+    -moz-appearance: textfield;
+}
+
+.botoes-ad {
+    display: flex;
+    gap: 10px;
+    padding-top: 2rem;
+}
+
+.botao-ad {
+    display: block;
+    background-color: var(--azul-botao);
+    border-radius: 5px;
+    padding: 1rem;
+    box-sizing: border-box;
+    color: var(--branco);
+    font-size: 1.25rem;
+}
+
+.botao-ad:active {
+    background-color: var(--cinza-btnAtivo);
+}
+
+.botao-cancela {
+    background-color: #ff0700;
+}
+
+#nome-usuario,
+#celular-usuario,
+#email-usuario,
+#pontos-usuario {
+    cursor: not-allowed;
+}

@@ -1,4 +1,4 @@
-const urlApi = "http://localhost:4000/corpo"
+const urlApi = "http://localhost:3000/produtos/"
 const tabela = document.querySelector("table")
 const cabecalhoTabela = tabela.querySelector("thead")
 const corpoTabela = tabela.querySelector("tbody")
@@ -8,6 +8,7 @@ let paginaUm = 1
 let arrayAtualizado = []
 const botoesPorPagina = 5
 const cabecalho = ["SKU","Produto","Quantidade","Valor", "Unidade", "Ações"]
+buscaDigitado.value = ''
 
 
 // Conexão API

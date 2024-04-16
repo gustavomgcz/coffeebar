@@ -55,11 +55,11 @@
                                     <label class="formulario__label" for="produto">Produto</label>
                                 </div>
                                 <div class="formulario-container formulario--quantidade">
-                                    <input id="quantidade" class="formulario__input" name="quantidade" type="number" placeholder="quantidade" required>
+                                    <input id="quantidade" class="formulario__input" name="quantidade" type="number" placeholder="quantidade"  pattern="\d*" oninput="validarNumero(this)" required>
                                     <label class="formulario__label" for="quantidade">Quantidade</label>
                                 </div>
                                 <div class="formulario-container formulario--valor">
-                                    <input id="valor" class="formulario__input" name="valor" type="number" placeholder="Valor" required>
+                                    <input id="valor" class="formulario__input" name="valor" type="number" placeholder="Valor"  pattern="\d*" oninput="validarNumero(this)" required>
                                     <label class="formulario__label" for="valor">Valor</label>
                                 </div>
                                 <div class="formulario-container formulario--teste">

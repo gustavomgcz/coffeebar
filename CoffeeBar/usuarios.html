@@ -13,6 +13,8 @@
         <link rel="stylesheet" href="./assets/css/usuarios.css">
         <link rel="stylesheet" href="./assets/css/formulario.css">
         <link rel="stylesheet" href="./assets/css/botao.css">
+        <link rel="stylesheet" href="./assets/css/editar.css">
+
         <link rel="icon" href="./assets/img/favicon-black.png" type="image/x-icon">
         
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -62,9 +64,53 @@
                     </div>
                 </div>
             </div>
+            
         </main>
-    
+        
+        <div class="modal">
+            <div class="caixa-ad">
+                <h1 class="texto">Usuário</h1>
+                <div class="formulario-ad">
+                    <div class="formulario-container formulario--nome-usuario">
+                        <input id="nome-usuario" class="formulario__input" name="nome-usuario" type="text" placeholder="Nome" disabled></input>
+                        <label class="formulario__label" for="nome-usuario">Nome</label>
+                    </div>
+                    <div class="formulario-container formulario--celular-usuario">
+                        <input id="celular-usuario" class="formulario__input" name="celular-usuario" type="text" placeholder="Celular" disabled>
+                        <label class="formulario__label" for="celular-usuario">Celular</label>
+                    </div>
+                    <div class="formulario-container formulario--email-usuario">
+                        <input id="email-usuario" class="formulario__input" name="email-usuario" type="text" placeholder="E-mail" disabled>
+                        <label class="formulario__label" for="email-usuario">E-mail</label>
+                    </div>
+                    <div class="formulario-container formulario--pontos-usuario">
+                        <input id="pontos-usuario" class="formulario__input" name="pontos-usuario" type="text" placeholder="Pontos" disabled>
+                        <label class="formulario__label" for="pontos-usuario">Pontos</label>
+                    </div>
 
+                </div>
+                <h2 class="texto-ad">Adicionar ou Remover Pontos</h2>
+
+                <div class="edita-pontos">
+                    <div class="radio-ad">
+                        <input type="radio" id="adicionar-pontos" name="add-rem" value="add" checked>
+                        <label for="adicionar-pontos">Adicionar</label><br>
+                        <input type="radio" id="remover-pontos" name="add-rem" value="rem">
+                        <label for="remover-pontos">Remover</label><br>
+                    </div>
+                    <div class="formulario-container formulario--altera-pontos">
+                        <input id="qtd-pontos" class="formulario__input" name="qtd-pontos" type="number" placeholder="Pontos" pattern="\d*" oninput="validarNumero(this)">
+                        <label class="formulario__label" for="qtd-pontos">Pontos</label>
+                    </div>
+                </div>
+                
+                <div class="botoes-ad">
+                    <button class="botao-ad botao-cancela">Cancelar</button>
+                    <button class="botao-ad botao-confirma">Confirmar</button>
+                </div>
+            </div>
+        </div>
+        
 
         
     </body>

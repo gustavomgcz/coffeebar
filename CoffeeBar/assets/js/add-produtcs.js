@@ -77,3 +77,7 @@ formulario.addEventListener("submit", evento => {
     evento.preventDefault()
     enviarProduto()
 })
+
+function validarNumero(digito) {
+    digito.value = digito.value.replace(/\D/g, '');
+}
